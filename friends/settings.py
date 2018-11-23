@@ -4,20 +4,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get('DjangoSecretKey')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
 
     #my_apps
     'vk_friends_app.apps.VkFriendsAppConfig'
@@ -90,7 +85,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-
-STATIC_URL = '/static/'
