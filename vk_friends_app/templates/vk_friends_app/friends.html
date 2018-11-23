@@ -1,0 +1,59 @@
+{% extends 'vk_friends_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="p-0 mb-2 mt-5 text-info">
+    <div class="row">
+      <div class="col"><p class="text-center"> Это вы: </p></div>  
+    </div>
+</div>
+
+<div class="p-0 mb-0 text-dark">
+    <div class="row">
+      <div class="col"><p class="text-center"> {{ user }} </p></div>  
+    </div>
+</div>
+
+<div class="p-0 mb-0 mt-5 text-info">
+    <div class="row">
+      <div class="col"><p class="text-center"> А это 5 ваших случайных друзей: </p></div>  
+    </div>
+</div>
+
+{% for friend in friends %}
+  <div class="p-0 mb-0 text-dark">
+      <div class="row">
+        <div class="col">
+          <p class="text-center"> {{ friend }} </p>
+        </div>  
+      </div>
+  </div>
+{% endfor %}
+
+<div class="p-0 mb-0 text-white">
+  <div class="row">
+    <div class="col my-4">
+      <p class="text-center"> 
+        <button type="button" class="btn btn-info" value="Submit" id="exittt">    
+          Выход  
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="application/javascript">
+    (function (window, document) {
+      document.addEventListener('DOMContentLoaded', function () {
+        var control = document.getElementById('exittt');
+        control.addEventListener('click', function (event) {
+          window.location.href = "{% url 'friends:first_view' %}?logout"
+        })
+      })
+    })(window, document);
+</script>
+
+{% endblock %}
+
